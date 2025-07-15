@@ -1167,6 +1167,9 @@ class triton:
     # exceeds this limit
     cudagraph_dynamic_shape_warn_limit: Optional[int] = 50
 
+    # force a python GC before recording cudagraphs
+    force_cudagraph_gc = os.environ.get("TORCHINDUCTOR_CUDAGRAPH_GC", "0") != "0"
+
     # synchronize after cudagraph invocation
     force_cudagraph_sync = False
 
