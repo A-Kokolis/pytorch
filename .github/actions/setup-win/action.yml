@@ -41,9 +41,7 @@ runs:
         .ci/pytorch/windows/internal/install_python.bat
         echo "PATH=$(pwd)/Python/Scripts;$(pwd)/Python;$(pwd)" | tee -a "${GITHUB_ENV}"
         echo "PYTHON_PATH=$(pwd)/Python" | tee -a "${GITHUB_ENV}"
-        PYTHON=$(which python)
-        PYTHON3=$(echo "${PYTHON}" | sed "s/python/python3/")
-        ln -s "${PYTHON}" "${PYTHON3}"
+        ln -s "${PYTHON_PATH}/python" "${PYTHON_PATH}/python3"
 
     - name: Get temporary directory used by Windows Python
       shell: bash
